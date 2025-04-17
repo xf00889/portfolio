@@ -3,29 +3,29 @@ from django.shortcuts import render
 # Dictionary to store portfolio content
 portfolio_content = {
     'about': {
-        'name': 'Your Name',
+        'name': 'Neil Micho Valiao',
         'title': 'Web Developer',
         'bio': 'Passionate web developer with expertise in creating modern web applications.',
         'skills': ['Python', 'Django', 'JavaScript', 'HTML/CSS', 'React', 'SQL']
     },
     'projects': [
         {
-            'title': 'Project 1',
+            'title': 'Portfolio Website',
             'description': 'A web application built with Django and React.',
             'technologies': ['Django', 'React', 'MYSQL'],
             'link': 'https://github.com/yourusername/project1'
         },
         {
-            'title': 'Project 2',
+            'title': 'E-Commerce Platform',
             'description': 'An e-commerce platform with payment integration.',
             'technologies': ['Django', 'Stripe', 'Bootstrap'],
             'link': 'https://github.com/yourusername/project2'
         }
     ],
     'contact': {
-        'email': 'your.email@example.com',
-        'linkedin': 'https://linkedin.com/in/yourusername',
-        'github': 'https://github.com/yourusername'
+        'email': 'neilmichovaliao@gmail.com',
+        'linkedin': 'https://linkedin.com/in/micho',
+        'github': 'https://github.com/xf00889'
     },
     'services': [
         {
@@ -60,10 +60,10 @@ portfolio_content = {
     ],
     'education': [
         {
-            'degree': 'B.Sc. in Computer Science',
-            'institution': 'State University',
+            'degree': 'B.Sc. in Information Technology',
+            'institution': 'Negros Oriental State University',
             'period': '2014 - 2018',
-            'description': 'Graduated with honors, specialized in software engineering.'
+            'description': 'Graduated with depression'
         },
         {
             'degree': 'Certified Django Developer',

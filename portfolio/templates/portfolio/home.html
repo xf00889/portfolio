@@ -35,14 +35,79 @@
     <!-- Hero Section -->
     <section class="hero-section text-center py-5" data-aos="fade-up">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3">{{ about.name }}</h1>
-            <p class="lead mb-4">{{ about.title }}</p>
+            <h1 class="display-4 fw-bold mb-3 animated-text" id="animated-headline">{{ about.name }}</h1>
+            <p class="lead mb-4 animated-text" id="animated-subtitle">{{ about.title }}</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary me-3">View Projects</a>
                 <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
             </div>
         </div>
     </section>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href').slice(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: target.getBoundingClientRect().top + window.pageYOffset - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        // Section fade-in on scroll
+        const sections = document.querySelectorAll('section');
+        const fadeIn = (el) => {
+            el.classList.add('section-visible');
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    fadeIn(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        sections.forEach(section => {
+            section.classList.add('section-hidden');
+            observer.observe(section);
+        });
+        // Animated headline/subtitle
+        function animateText(element, text, delay) {
+            let i = 0;
+            let isDeleting = false;
+            function loop() {
+                if (!isDeleting && i <= text.length) {
+                    element.textContent = text.substring(0, i);
+                    i++;
+                    if (i > text.length) {
+                        setTimeout(() => { isDeleting = true; loop(); }, 1200);
+                        return;
+                    }
+                } else if (isDeleting && i >= 0) {
+                    element.textContent = text.substring(0, i);
+                    i--;
+                    if (i < 0) {
+                        isDeleting = false;
+                        setTimeout(loop, 400);
+                        return;
+                    }
+                }
+                setTimeout(loop, delay);
+            }
+            loop();
+        }
+        const headline = document.getElementById('animated-headline');
+        const subtitle = document.getElementById('animated-subtitle');
+        if (headline && subtitle) {
+            animateText(headline, headline.textContent, 70);
+            setTimeout(() => animateText(subtitle, subtitle.textContent, 40), headline.textContent.length * 70 + 400);
+        }
+    });
+    </script>
 
     <div class="container my-5">
         <!-- About Section -->
