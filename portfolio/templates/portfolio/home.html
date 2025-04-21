@@ -9,6 +9,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Enhanced visual hierarchy styles */
+        .hero-section {
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .section-divider {
+            height: 4px;
+            width: 60px;
+            background: var(--bs-primary);
+            margin: 0 auto 3rem;
+            border-radius: 2px;
+        }
+        .bio-highlight {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--bs-primary);
+            margin-bottom: 1.5rem;
+        }
+        .bio-section {
+            padding: 3rem 0;
+            background: rgba(10, 25, 47, 0.4);
+            border-radius: 1rem;
+            margin-bottom: 3rem;
+        }
+        .bio-card {
+            border-left: 3px solid var(--bs-primary);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--bs-primary);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 20px -5px rgba(100,255,218,0.15);
+            background-color: rgba(10, 25, 47, 0.95) !important;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg sticky-top shadow-sm" style="border-radius: 1rem; margin-top: 1rem; margin-bottom: 2rem;">
@@ -21,11 +65,13 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav gap-2">
+                    <li class="nav-item"><a class="nav-link px-3" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#education">Education</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#hobbies">Hobbies & Interests</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -33,13 +79,40 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section text-center py-5" data-aos="fade-up">
+    <section class="hero-section text-center" data-aos="fade-up">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3 animated-text" id="animated-headline">{{ about.name }}</h1>
-            <p class="lead mb-4 animated-text" id="animated-subtitle">{{ about.title }}</p>
-            <div class="hero-buttons">
+            <h1 class="display-3 fw-bold mb-3 animated-text" id="animated-headline">{{ about.name }}</h1>
+            <p class="lead fs-3 mb-4 animated-text" id="animated-subtitle">{{ about.title }}</p>
+            <div class="section-divider"></div>
+            <p class="bio-highlight">{{ about.tagline }}</p>
+            <div class="hero-buttons mb-5">
                 <a href="#projects" class="btn btn-primary me-3">View Projects</a>
                 <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Detailed Biography Section -->
+    <section class="bio-section" data-aos="fade-up" data-aos-delay="200">
+        <div class="container">
+            <h2 class="text-center mb-5">{{ about.journey.title }}</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="bio-card">
+                        <h3 class="section-subtitle">{{ about.journey.sections.0.subtitle }}</h3>
+                        <p class="mb-4">{{ about.journey.sections.0.content }}</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                        <h3 class="section-subtitle">{{ about.journey.sections.1.subtitle }}</h3>
+                        <p class="mb-4">{{ about.journey.sections.1.content }}</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                        <h3 class="section-subtitle">{{ about.journey.sections.2.subtitle }}</h3>
+                        <p>{{ about.journey.sections.2.content }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -111,42 +184,62 @@
 
     <div class="container my-5">
         <!-- About Section -->
-        <section id="about" class="mb-5" data-aos="fade-up">
-            <h2 class="text-center section-title">
+        <section id="about" class="mb-5 py-5" data-aos="fade-up">
+            <h2 class="text-center section-title mb-5">
                 <span class="material-icons">person</span>
-                About Me
+                {{ section_titles.about }}
             </h2>
-            <div class="row">
-                <div class="col-md-8 mx-auto text-center">
-                    <h3>{{ about.title }}</h3>
-                    <p class="lead">{{ about.bio }}</p>
-                    <div class="skills mt-4">
-                        <h4 class="mb-3">
-                            <span class="material-icons">build</span>
-                            Skills
-                        </h4>
-                        <div class="d-flex flex-wrap justify-content-center gap-2">
-                            {% for skill in about.skills %}
-                                <span class="badge rounded-pill">{{ skill }}</span>
-                            {% endfor %}
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="text-center">
+                        <div class="profile-image-container mb-4">
+                            <img src="/static/img/profile.png" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 180px; height: 180px; object-fit: cover; border: 3px solid var(--bs-primary);">
+                        </div>
+                        <h3 class="mb-3">{{ about.title }}</h3>
+                        <div class="d-flex justify-content-center gap-3 mb-4">
+                            <a href="{{ contact.linkedin }}" class="social-icon" target="_blank">
+                                <i class="fab fa-linkedin fa-2x" style="color: var(--bs-primary);"></i>
+                            </a>
+                            <a href="{{ contact.github }}" class="social-icon" target="_blank">
+                                <i class="fab fa-github fa-2x" style="color: var(--bs-primary);"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4">
+                        <h4 class="mb-4 border-bottom pb-3">Professional Summary</h4>
+                        <p class="lead mb-4">{{ about.bio }}</p>
+                        <div class="skills mt-4">
+                            <h4 class="mb-3 d-flex align-items-center">
+                                <span class="material-icons me-2">build</span>
+                                Technical Skills
+                            </h4>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                {% for skill in about.skills %}
+                                    <span class="badge rounded-pill">{{ skill }}</span>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Services Section -->
-        <section id="services" class="mb-5" data-aos="fade-up">
-            <h2 class="text-center section-title">
+        <section id="services" class="mb-5 py-5" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-center section-title mb-5">
                 <span class="material-icons">miscellaneous_services</span>
-                Services
+                {{ section_titles.services }}
             </h2>
+            <div class="section-divider mb-5"></div>
             <div class="row g-4 justify-content-center">
                 {% for service in services %}
                 <div class="col-md-4">
                     <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <span class="material-icons mb-2" style="font-size:2.5rem;color:var(--bs-primary);">{{ service.icon }}</span>
-                            <h4 class="card-title">{{ service.title }}</h4>
+                        <div class="card-body text-center p-4">
+                            <span class="material-icons mb-3" style="font-size:3rem;color:var(--bs-primary);">{{ service.icon }}</span>
+                            <h4 class="card-title mb-3">{{ service.title }}</h4>
+                            <div class="card-divider mb-3" style="height:2px;width:40px;background:var(--bs-primary);margin:0 auto;"></div>
                             <p class="card-text">{{ service.description }}</p>
                         </div>
                     </div>
@@ -155,37 +248,40 @@
             </div>
         </section>
         <!-- Experience Section -->
-        <section id="experience" class="mb-5" data-aos="fade-up">
-            <h2 class="text-center section-title">
+        <section id="experience" class="mb-5 py-5" data-aos="fade-up" data-aos-delay="150">
+            <h2 class="text-center section-title mb-5">
                 <span class="material-icons">work_history</span>
-                Experience
+                {{ section_titles.experience }}
             </h2>
+            <div class="section-divider mb-5"></div>
             <div class="timeline">
                 {% for exp in experience %}
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:"100" }}">
                     <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h5>{{ exp.role }} <span class="text-muted">@ {{ exp.company }}</span></h5>
-                        <span class="text-primary small">{{ exp.period }}</span>
-                        <p>{{ exp.description }}</p>
+                    <div class="timeline-content card shadow-sm p-4 mb-4">
+                        <h5 class="mb-2">{{ exp.role }} <span class="text-primary">@ {{ exp.company }}</span></h5>
+                        <span class="badge rounded-pill mb-3">{{ exp.period }}</span>
+                        <p class="mb-0">{{ exp.description }}</p>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </section>
         <!-- Education Section -->
-        <section id="education" class="mb-5" data-aos="fade-up">
-            <h2 class="text-center section-title">
+        <section id="education" class="mb-5 py-5" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="text-center section-title mb-5">
                 <span class="material-icons">school</span>
-                Education
+                {{ section_titles.education }}
             </h2>
+            <div class="section-divider mb-5"></div>
             <div class="row g-4 justify-content-center">
                 {% for edu in education %}
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:"150" }}">
                     <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <span class="material-icons mb-3" style="font-size:2.5rem;color:var(--bs-primary);">school</span>
+                        <div class="card-body text-center p-4">
+                            <span class="material-icons mb-3" style="font-size:3rem;color:var(--bs-primary);">school</span>
                             <h4 class="card-title mb-3">{{ edu.degree }}</h4>
+                            <div class="card-divider mb-3" style="height:2px;width:40px;background:var(--bs-primary);margin:0 auto;"></div>
                             <h5 class="text-primary mb-3">{{ edu.institution }}</h5>
                             <span class="badge rounded-pill mb-3">{{ edu.period }}</span>
                             <p class="card-text">{{ edu.description }}</p>
@@ -196,25 +292,27 @@
             </div>
         </section>
         <!-- Projects Section -->
-        <section id="projects" class="mb-5" data-aos="fade-up">
-            <h2 class="text-center section-title">
+        <section id="projects" class="mb-5 py-5" data-aos="fade-up" data-aos-delay="250">
+            <h2 class="text-center section-title mb-5">
                 <span class="material-icons">work</span>
-                Projects
+                {{ section_titles.projects }}
             </h2>
+            <div class="section-divider mb-5"></div>
             <div class="row g-4">
                 {% for project in projects %}
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:"200" }}">
                     <div class="card h-100 project-card">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ project.title }}</h3>
-                            <p class="card-text">{{ project.description }}</p>
-                            <div class="mb-3">
+                        <div class="card-body p-4">
+                            <h3 class="card-title mb-3">{{ project.title }}</h3>
+                            <div class="card-divider mb-3" style="height:2px;width:40px;background:var(--bs-primary);"></div>
+                            <p class="card-text mb-4">{{ project.description }}</p>
+                            <div class="mb-4">
                                 {% for tech in project.technologies %}
                                     <span class="badge rounded-pill">{{ tech }}</span>
                                 {% endfor %}
                             </div>
                             <a href="{{ project.link }}" class="btn btn-primary" target="_blank">
-                                <span class="material-icons">launch</span>
+                                <span class="material-icons me-2">launch</span>
                                 View Project
                             </a>
                         </div>
@@ -224,63 +322,154 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" data-aos="fade-up">
-            <h2 class="text-center section-title">
-                <span class="material-icons">contact_mail</span>
-                Contact
+        <!-- Hobbies and Interests Section -->
+        <section id="hobbies" class="mb-5 py-5" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="text-center section-title mb-5">
+                <span class="material-icons">interests</span>
+                {{ section_titles.hobbies }}
             </h2>
-            <div class="row">
-                <div class="col-md-6 mx-auto text-center">
-                    <div class="d-flex flex-column align-items-center gap-3 mb-4">
-                        <div class="d-flex align-items-center gap-2">
-                            <span class="material-icons contact-icon">email</span>
-                            <a href="mailto:{{ contact.email }}" class="text-decoration-none">{{ contact.email }}</a>
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <span class="material-icons contact-icon">phone</span>
-                            <a href="tel:{{ contact.phone }}" class="text-decoration-none">{{ contact.phone }}</a>
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <span class="material-icons contact-icon">location_on</span>
-                            <span>{{ contact.address }}</span>
-                        </div>
-                        <div class="d-flex justify-content-center gap-3 mt-2">
-                            <a href="{{ contact.linkedin }}" class="text-decoration-none" target="_blank">
-                                <span class="material-icons contact-icon">business</span>
-                            </a>
-                            <a href="{{ contact.github }}" class="text-decoration-none" target="_blank">
-                                <span class="material-icons contact-icon">code</span>
-                            </a>
+            <div class="section-divider mb-5"></div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <span class="material-icons mb-3" style="font-size:3rem;color:var(--bs-primary);">{{ hobbies.0.icon }}</span>
+                            <h4 class="card-title mb-3">{{ hobbies.0.title }}</h4>
+                            <div class="card-divider mb-3" style="height:2px;width:40px;background:var(--bs-primary);margin:0 auto;"></div>
+                            <p class="card-text">{{ hobbies.0.description }}</p>
                         </div>
                     </div>
-                    <form method="post" action="/contact/" class="contact-form bg-dark p-4 rounded shadow-sm">
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <span class="material-icons mb-3" style="font-size:3rem;color:var(--bs-primary);">{{ hobbies.1.icon }}</span>
+                            <h4 class="card-title mb-3">{{ hobbies.1.title }}</h4>
+                            <div class="card-divider mb-3" style="height:2px;width:40px;background:var(--bs-primary);margin:0 auto;"></div>
+                            <p class="card-text">{{ hobbies.1.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="350">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <span class="material-icons mb-3" style="font-size:3rem;color:var(--bs-primary);">{{ hobbies.2.icon }}</span>
+                            <h4 class="card-title mb-3">{{ hobbies.2.title }}</h4>
+                            <div class="card-divider mb-3" style="height:2px;width:40px;background:var(--bs-primary);margin:0 auto;"></div>
+                            <p class="card-text">{{ hobbies.2.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-5" data-aos="fade-up" data-aos-delay="350">
+            <h2 class="text-center section-title mb-5">
+                <span class="material-icons">contact_mail</span>
+                {{ section_titles.contact }}
+            </h2>
+            <div class="section-divider mb-5"></div>
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <div class="card shadow-sm p-4 mb-4">
+                        <h4 class="mb-4 text-center">{{ contact.title }}</h4>
+                        <div class="d-flex flex-column align-items-center gap-3 mb-4">
+                            <div class="d-flex align-items-center gap-3 w-100">
+                                <span class="material-icons contact-icon p-2 rounded-circle" style="background:rgba(100,255,218,0.1);">email</span>
+                                <a href="mailto:{{ contact.email }}" class="text-decoration-none">{{ contact.email }}</a>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 w-100">
+                                <span class="material-icons contact-icon p-2 rounded-circle" style="background:rgba(100,255,218,0.1);">phone</span>
+                                <a href="tel:{{ contact.phone }}" class="text-decoration-none">{{ contact.phone }}</a>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 w-100">
+                                <span class="material-icons contact-icon p-2 rounded-circle" style="background:rgba(100,255,218,0.1);">location_on</span>
+                                <span>{{ contact.address }}</span>
+                            </div>
+                            <div class="d-flex justify-content-center gap-4 mt-3">
+                                <a href="{{ contact.linkedin }}" class="text-decoration-none" target="_blank">
+                                    <i class="fab fa-linkedin fa-2x" style="color: var(--bs-primary);"></i>
+                                </a>
+                                <a href="{{ contact.github }}" class="text-decoration-none" target="_blank">
+                                    <i class="fab fa-github fa-2x" style="color: var(--bs-primary);"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <form method="post" action="/contact/" class="contact-form bg-dark p-4 rounded shadow-sm" data-aos="fade-up" data-aos-delay="200">
                         {% csrf_token %}
+                        <h4 class="mb-4 text-center">{{ contact_form.title }}</h4>
                         <div class="mb-3 text-start">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="name" class="form-label">{{ contact_form.name_label }}</label>
                             <input type="text" class="form-control" id="name" name="name" required>
                         </div>
                         <div class="mb-3 text-start">
-                            <label for="email" class="form-label">Email</label>
+                            <label for="email" class="form-label">{{ contact_form.email_label }}</label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="mb-3 text-start">
-                            <label for="message" class="form-label">Message</label>
+                            <label for="message" class="form-label">{{ contact_form.message_label }}</label>
                             <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        <button type="submit" class="btn btn-primary w-100">{{ contact_form.button_text }}</button>
                     </form>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- Footer Section -->
+    <footer class="py-4 mt-5" style="background: rgba(10, 25, 47, 0.9); border-top: 1px solid rgba(100, 255, 218, 0.1);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto text-center">
+                    <h4 class="mb-4">{{ about.name }}</h4>
+                    <p class="mb-4">{{ footer.message }}</p>
+                    <div class="d-flex justify-content-center gap-4 mb-4">
+                        <a href="{{ contact.linkedin }}" class="text-decoration-none" target="_blank">
+                            <i class="fab fa-linkedin fa-2x" style="color: var(--bs-primary);"></i>
+                        </a>
+                        <a href="{{ contact.github }}" class="text-decoration-none" target="_blank">
+                            <i class="fab fa-github fa-2x" style="color: var(--bs-primary);"></i>
+                        </a>
+                        <a href="mailto:{{ contact.email }}" class="text-decoration-none">
+                            <i class="fas fa-envelope fa-2x" style="color: var(--bs-primary);"></i>
+                        </a>
+                    </div>
+                    <p class="small text-muted">{{ footer.copyright }}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script>
         AOS.init({
             duration: 800,
-            once: true
+            once: true,
+            offset: 100,
+            delay: 100,
+            easing: 'ease-in-out'
+        });
+
+        // Initialize particles.js
+        particlesJS.load('particles-js', '/static/js/particles-config.js', function() {
+            console.log('particles.js loaded - callback');
+        });
+        
+        // Enhanced scroll behavior
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const navbar = document.querySelector('.navbar');
+            
+            if (scrollPosition > 100) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
         });
     </script>
 </body>
