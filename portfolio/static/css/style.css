@@ -55,13 +55,36 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 2rem;
+}
 .hero-buttons .btn {
     padding: 0.8rem 2rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
+    min-width: 180px;
+    text-align: center;
+    flex: 1 1 auto;
+    max-width: 220px;
 }
-
+@media (max-width: 576px) {
+    .hero-buttons {
+        gap: 0.8rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+    .hero-buttons .btn {
+        padding: 0.7rem 1.8rem;
+        min-width: 160px;
+        width: 100%;
+        max-width: 200px;
+    }
+}
 .card {
     background-color: var(--bs-card-bg);
     border: 1px solid var(--bs-card-border);
@@ -331,15 +354,51 @@ body, .card, .navbar, .section-title, .btn, .badge {
 }
 
 /* Responsive Improvements */
-@media (max-width: 767px) {
-    .hero-section {
-        padding: 60px 0;
+@media (max-width: 1200px) {
+    .hero-section .display-4 {
+        font-size: 3.5rem;
     }
     .section-title {
-        font-size: 1.5rem;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section .display-4 {
+        font-size: 3rem;
+    }
+    .timeline::before {
+        left: 2rem;
+    }
+    .timeline-marker {
+        left: 2rem;
+    }
+    .timeline-content {
+        width: calc(100% - 4rem);
+        margin-left: 4rem;
+    }
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 4rem;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: 14px;
+    }
+    .hero-section {
+        padding: 60px 0;
+        min-height: 60vh;
+    }
+    .hero-section .display-4 {
+        font-size: 2.5rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
     }
     .card-body {
-        padding: 1.2rem 0.7rem;
+        padding: 1.2rem 1rem;
     }
     .timeline {
         padding-left: 1rem;
@@ -347,7 +406,39 @@ body, .card, .navbar, .section-title, .btn, .badge {
     .navbar {
         margin-top: 0.5rem;
         margin-bottom: 1rem;
-        border-radius: 0.7rem;
+        padding: 0.8rem 0;
+    }
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+    }
+    .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section .display-4 {
+        font-size: 2rem;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .card {
+        margin: 0.8rem 0;
+    }
+    .timeline-content {
+        width: calc(100% - 3rem);
+        margin-left: 3rem;
+    }
+    .timeline::before {
+        left: 1rem;
+    }
+    .timeline-marker {
+        left: 1rem;
+    }
+    .container {
+        padding: 0 1rem;
     }
 }
 

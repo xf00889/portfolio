@@ -42,8 +42,8 @@ portfolio_content = {
     ],
     'contact': {
         'email': 'neilmichovaliao@gmail.com',
-        'linkedin': 'https://linkedin.com/in/micho',
-        'github': 'https://github.com/xf00889',
+        'linkedin': 'https://linkedin.com/',
+        'github': 'https://github.com/',
         'title': 'Get In Touch'
     },
     'services': [
