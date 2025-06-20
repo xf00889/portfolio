@@ -31,7 +31,7 @@ portfolio_content = {
             'title': 'Portfolio Website',
             'description': 'A web application built with Django and React.',
             'technologies': ['Django', 'HTML', 'CSS', 'Javascript'],
-            'link': 'https://github.com/yourusername/project1'
+            'link': 'https://github.com/xf00889/portfolio'
         },
         {
             'title': 'NORSU Alumni Web Portal ',
