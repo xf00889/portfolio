@@ -4,7 +4,7 @@ set -o errexit
 
 # Install Python dependencies
 pip install --upgrade pip
-pip install -r requirements.txt
+pip install --timeout=100 -r requirements-deploy.txt
 
 # Collect static files
 python manage.py collectstatic --noinput 
