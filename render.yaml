@@ -2,7 +2,10 @@ services:
   - type: web
     name: portfolio
     runtime: python
-    buildCommand: ./build.sh
+    buildCommand: |
+      pip install --upgrade pip
+      pip install Django==4.2.19 gunicorn==23.0.0 whitenoise==6.9.0 dj-database-url==2.3.0 psycopg2-binary==2.9.10
+      python manage.py collectstatic --noinput
     startCommand: gunicorn portfolio.wsgi:application
     envVars:
       - key: SECRET_KEY
@@ -12,5 +15,5 @@ services:
       - key: ALLOWED_HOSTS
         value: ".onrender.com"
       - key: PYTHON_VERSION
-        value: 3.10.12
+        value: 3.10.8
     plan: free 
