@@ -3,7 +3,7 @@ services:
     name: portfolio
     runtime: python
     buildCommand: chmod +x build_files.sh && ./build_files.sh
-    startCommand: gunicorn portfolio.wsgi:application
+    startCommand: gunicorn portfolio.wsgi:application --bind 0.0.0.0:$PORT --log-file -
     envVars:
       - key: SECRET_KEY
         generateValue: true
@@ -13,4 +13,9 @@ services:
         value: ".onrender.com"
       - key: PYTHON_VERSION
         value: 3.10.13
-    plan: free 
+      - key: PORT
+        value: 8000
+      - key: WEB_CONCURRENCY
+        value: 1
+    plan: free
+    healthCheckPath: /health/ 
