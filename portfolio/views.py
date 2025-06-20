@@ -31,7 +31,7 @@ portfolio_content = {
             'title': 'Portfolio Website',
             'description': 'A web application built with Django and React.',
             'technologies': ['Django', 'HTML', 'CSS', 'Javascript'],
-            'link': 'https://github.com/xf00889/portfolio'
+            'link': 'https://github.com/yourusername/project1'
         },
         {
             'title': 'NORSU Alumni Web Portal ',
@@ -206,9 +206,3 @@ portfolio_content = {
 
 def home(request):
     return render(request, 'portfolio/home.html', portfolio_content)
-
-# Simple health check view for Render
-from django.http import HttpResponse
-
-def health_check(request):
-    return HttpResponse("OK", content_type="text/plain")
