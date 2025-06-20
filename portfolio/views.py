@@ -3,21 +3,21 @@ from django.shortcuts import render
 # Dictionary to store portfolio content
 portfolio_content = {
     'about': {
-        'name': 'Neil Micho Valiao',
+        'name': 'Juby Neil Valiao',
         'title': 'Web Developer',
         'bio': 'Passionate web developer with expertise in creating modern web applications.',
-        'skills': ['Python', 'Django', 'JavaScript', 'HTML/CSS', 'React', 'SQL'],
+        'skills': ['Python', 'Django', 'PHP', 'Laravel', 'JavaScript', 'HTML/CSS', 'Java', 'MYSQL'],
         'tagline': 'Transforming ideas into exceptional digital experiences',
         'journey': {
             'title': 'My Journey',
             'sections': [
                 {
                     'subtitle': 'Professional Background',
-                    'content': "I'm a passionate web developer with over 5 years of experience crafting modern, responsive web applications. My journey in tech began with a curiosity about how websites work, which quickly evolved into a career building digital solutions that solve real-world problems."
+                    'content': "I'm a fresh graduate with a passion for web development and creating modern, responsive web applications. My journey in tech began with a curiosity about how websites work during my academic years, where I developed foundational skills through coursework and personal projects. I'm eager to apply my knowledge and grow as a professional developer."
                 },
                 {
                     'subtitle': 'Technical Expertise',
-                    'content': "My core expertise lies in full-stack development with Django and React. I believe in writing clean, maintainable code and staying current with emerging technologies. I'm particularly interested in creating accessible interfaces that provide exceptional user experiences across all devices."
+                    'content': "My core expertise lies in full-stack development with Python/Django and PHP/Laravel frameworks. I have experience building applications using Java with Netbeans IDE. I believe in writing clean, maintainable code and staying current with emerging technologies. I'm particularly interested in creating accessible interfaces that provide exceptional user experiences across all devices."
                 },
                 {
                     'subtitle': 'Philosophy & Approach',
@@ -30,20 +30,45 @@ portfolio_content = {
         {
             'title': 'Portfolio Website',
             'description': 'A web application built with Django and React.',
-            'technologies': ['Django', 'React', 'MYSQL'],
+            'technologies': ['Django', 'HTML', 'CSS', 'Javascript'],
             'link': 'https://github.com/yourusername/project1'
         },
         {
-            'title': 'E-Commerce Platform',
-            'description': 'An e-commerce platform with payment integration.',
-            'technologies': ['Django', 'Stripe', 'Bootstrap'],
+            'title': 'NORSU Alumni Web Portal ',
+            'description': 'A robust and feature-rich platform for Negros Oriental State University (NORSU) alumni to network, engage, and share information. ',
+            'technologies': ['Django', 'HTML', 'Bootstrap','Javascript'],
+            'link': 'https://github.com/yourusername/project2'
+        },
+        {
+            'title': 'CTTMO Traffic Violation Management System  ',
+            'description': 'Developed a web-based application for managing traffic violations, including recording infringement details and fines.',
+            'technologies': ['Django', 'HTML', 'Bootstrap','Javascript'],
+            'link': 'https://github.com/yourusername/project2'
+        },
+        {
+            'title': 'Pharmacy Inventory Management System',
+            'description': 'Built a multi user desktop app with role-based dashboards for inventory, prescription, stock, and sales management (POS).',
+            'technologies': ['JAVA Netbeans', 'MYSQL', 'JavaFX'],
+            'link': 'https://github.com/yourusername/project2'
+        },
+        {
+            'title': 'CRUD To Do List with Email Updates',
+            'description': 'Created a web-based CRUD application for task tracking, featuring email notifications on task creation, updates, or deadlines.',
+            'technologies': ['PHP', 'MYSQL', 'HTML', 'CSS', 'Javascript'],
+            'link': 'https://github.com/yourusername/project2'
+        },
+        {
+            'title': 'Django Payroll Management System with QR & Face Recognition',
+            'description': 'Developed a web-based payroll and attendance system using QR codes for staff authentication and payroll automation',
+            'technologies': ['Django', 'HTML', 'Bootstrap','Javascript'],
             'link': 'https://github.com/yourusername/project2'
         }
     ],
     'contact': {
-        'email': 'neilmichovaliao@gmail.com',
-        'linkedin': 'https://linkedin.com/',
-        'github': 'https://github.com/',
+        'email': 'hutchiejn@gmail.com',
+        'linkedin': 'https://www.linkedin.com/in/juby-neil-valiao-084b40237//',
+        'github': 'https://github.com/xf00889',
+        'facebook': 'https://www.facebook.com/jubyneil.valiao.7/',  
         'title': 'Get In Touch'
     },
     'services': [
@@ -65,43 +90,56 @@ portfolio_content = {
     ],
     'experience': [
         {
-            'role': 'Senior Web Developer',
-            'company': 'Tech Solutions Inc.',
-            'period': '2021 - Present',
-            'description': 'Lead developer for multiple client projects, focusing on full-stack development and cloud deployment. Implemented CI/CD pipelines and mentored junior developers.'
+            'role': 'Intern',
+            'company': 'NORSU-BSC',
+            'period': 'July 2024 - March 2025',
+            'description': '•	Supported staff members in their daily tasks, reducing workload burdens and allowing for increased focus on higher-priority assignments. Developed projects based on the office’s requirements and needs.'
         },
         {
-            'role': 'Frontend Developer',
-            'company': 'Creative Minds Agency',
-            'period': '2018 - 2021',
-            'description': 'Developed interactive and modern web interfaces using React and Vue. Improved site performance by 40% through optimization techniques.'
+            'role': 'Full Stack Developer',
+            'company': 'Freelance',
+            'period': 'February 2025 - Present',
+            'description': 'Developing interactive and modern web interfaces using Django.'
         },
-        {
-            'role': 'Backend Developer',
-            'company': 'Digital Innovations Lab',
-            'period': '2016 - 2018',
-            'description': 'Developed and maintained RESTful APIs using Django and PostgreSQL. Implemented real-time features using WebSockets.'
-        },
-        {
-            'role': 'Web Development Intern',
-            'company': 'StartUp Hub',
-            'period': '2015 - 2016',
-            'description': 'Assisted in developing and testing web applications. Gained hands-on experience with modern web technologies.'
-        }
+        # {
+        #     'role': 'Backend Developer',
+        #     'company': 'Digital Innovations Lab',
+        #     'period': '2016 - 2018',
+        #     'description': 'Developed and maintained RESTful APIs using Django and PostgreSQL. Implemented real-time features using WebSockets.'
+        # },
+        # {
+        #     'role': 'Web Development Intern',
+        #     'company': 'StartUp Hub',
+        #     'period': '2015 - 2016',
+        #     'description': 'Assisted in developing and testing web applications. Gained hands-on experience with modern web technologies.'
+        # }
     ],
     'education': [
         {
-            'degree': 'B.Sc. in Information Technology',
-            'institution': 'Negros Oriental State University',
-            'period': '2014 - 2018',
-            'description': 'Graduated with depression'
+            'degree': 'B.S. in Information Technology',
+            'institution': 'Negros Oriental State University – BSC ( Tertiary Education)',
+            'period': 'August 2020 - July 2025',
+            'description': 'Graduated with Proficiency in Desktop Application Development'
         },
         {
-            'degree': 'Certified Django Developer',
-            'institution': 'Django Software Foundation',
-            'period': '2019',
-            'description': 'Completed advanced Django certification.'
+            'degree': 'General Academic Strand',
+            'institution': 'Miguel L. Daclan National High School (Secondary Education)',
+            'period': 'June 2016 – April 2018',
+            'description': 'Graduated with Honors'
+        },
+          {
+            'degree': '',
+            'institution': 'Vicente Z. Badon Campus (Secondary Education )',
+            'period': 'June 2012 – April 2016',
+            'description': 'Graduated as Salutatorian'
+        },
+        {
+            'degree': '',
+            'institution': 'Bongalonan Elementary School (Elementary Education)',
+            'period': 'June 2008 – April 2012',
+            'description': 'Graduated as Valedictorian'
         }
+        
     ],
     'testimonials': [
         {
@@ -139,9 +177,9 @@ portfolio_content = {
             'description': 'I\'m an avid reader of science fiction, technology books, and philosophical works. Reading broadens my perspective and fuels my creativity.'
         },
         {
-            'icon': 'hiking',
-            'title': 'Hiking',
-            'description': 'I love exploring nature trails and mountains. Hiking helps me stay physically active and connect with nature while clearing my mind.'
+            'icon': 'sports_tennis',
+            'title': 'Badminton',
+            'description': 'I love playing badminton in my free time. It helps me stay physically active and is a great way to socialize while enjoying a competitive sport.'
         }
     ],
     'section_titles': {
@@ -155,7 +193,7 @@ portfolio_content = {
     },
     'footer': {
         'message': 'Thank you for visiting my portfolio. I\'m always open to discussing new projects, creative ideas or opportunities to be part of your vision.',
-        'copyright': '© 2023 {{ about.name }}. All Rights Reserved.'
+        'copyright': '© 2025 {{ about.name }}. All Rights Reserved.'
     },
     'contact_form': {
         'title': 'Send Me a Message',

@@ -55,198 +55,99 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg sticky-top shadow-sm" style="border-radius: 1rem; margin-top: 1rem; margin-bottom: 2rem;">
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm" style="border-radius: 0.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#" style="font-weight:700; font-size:1.5rem; letter-spacing:1px;">
-                <span class="material-icons me-2" style="font-size:2.2rem; color:var(--bs-primary);">code</span>{{ about.name }}
+            <a class="navbar-brand d-flex align-items-center" href="#" style="font-weight:600; font-size:1.3rem; letter-spacing:0.5px; color: #ffffff;">
+                <span class="material-icons me-2" style="font-size:1.8rem; color:#ffffff;">code</span>{{ about.name }}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-2">
-                    <li class="nav-item"><a class="nav-link px-3" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#hobbies">Hobbies & Interests</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+                <ul class="navbar-nav gap-1">
+                    <li class="nav-item"><a class="nav-link px-2" href="#" style="color: #ffffff;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="#experience" style="color: #ffffff;">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="#education" style="color: #ffffff;">Education</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="#projects" style="color: #ffffff;">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="#hobbies" style="color: #ffffff;">Hobbies & Interests</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="#contact" style="color: #ffffff;">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section text-center" data-aos="fade-up">
-        <div class="container">
-            <h1 class="display-3 fw-bold mb-3 animated-text" id="animated-headline">{{ about.name }}</h1>
-            <p class="lead fs-3 mb-4 animated-text" id="animated-subtitle">{{ about.title }}</p>
-            <div class="section-divider"></div>
-            <p class="bio-highlight">{{ about.tagline }}</p>
-            <div class="hero-buttons mb-5">
-                <a href="#projects" class="btn btn-primary me-3">View Projects</a>
-                <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Detailed Biography Section -->
-    <section class="bio-section" data-aos="fade-up" data-aos-delay="200">
-        <div class="container">
-            <h2 class="text-center mb-5">{{ about.journey.title }}</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="bio-card">
-                        <h3 class="section-subtitle">{{ about.journey.sections.0.subtitle }}</h3>
-                        <p class="mb-4">{{ about.journey.sections.0.content }}</p>
+    <section class="hero-section text-center position-relative" data-aos="fade-up">
+        <!-- Particles.js Background -->
+        <div id="particles-js" class="position-absolute top-0 start-0 w-100 h-100"></div>
+        
+        <div class="container position-relative">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="/static/img/pfp.JPG" alt="Profile Picture" class="img-fluid rounded-circle profile-image" style="width: 270px; height: 270px; object-fit: cover; border: 4px solid var(--bs-primary); box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);">
+                    
+                    <!-- Social media links directly under profile image -->
+                    <div class="d-flex justify-content-center gap-3 mt-3">
+                        <a href="{{ contact.linkedin }}" class="social-icon" target="_blank" aria-label="LinkedIn Profile">
+                            <i class="fab fa-linkedin fa-lg" style="color: #ffffff;"></i>
+                        </a>
+                        <a href="{{ contact.github }}" class="social-icon" target="_blank" aria-label="GitHub Profile">
+                            <i class="fab fa-github fa-lg" style="color: #ffffff;"></i>
+                        </a>
+                        <a href="{{ contact.facebook }}" class="social-icon" target="_blank" aria-label="Facebook Profile">
+                            <i class="fab fa-facebook fa-lg" style="color: #ffffff;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8 text-lg-start text-center">
+                    <h1 class="display-3 fw-bold mb-2">{{ about.name }}</h1>
+                    <p class="lead fs-3 mb-3 text-white">{{ about.title }}</p>
+                    <div class="section-divider mx-lg-0 mx-auto"></div>
+                    
+                    <!-- Enhanced introduction -->
+                    <p class="bio-highlight mb-3 text-white">{{ about.tagline }}</p>
+                    <p class="lead mb-4 text-white">I'm a passionate web developer focused on creating modern, responsive, and user-friendly web applications. With extensive expertise in both front-end and back-end technologies, I transform complex ideas into elegant, functional digital solutions that deliver exceptional user experiences.</p>
+                    
+                    <!-- Enhanced key skills section -->
+                    <div class="key-skills mb-4">
+                        <h4 class="mb-3 d-flex align-items-center text-white">
+                            <span class="material-icons me-2" style="color: #ffffff;">code</span>
+                            Technical Expertise
+                        </h4>
+                        <div class="d-flex flex-wrap gap-2 mb-2">
+                            {% for skill in about.skills|slice:":5" %}
+                                <span class="badge rounded-pill fs-6 py-2 px-3" style="background-color: rgba(255, 255, 255, 0.15) !important; color: #ffffff;">{{ skill }}</span>
+                            {% endfor %}
+                        </div>
+                        <p class="text-muted small mt-2 text-white-50">And other modern web technologies and frameworks</p>
                     </div>
                     
-                    <div class="bio-card">
-                        <h3 class="section-subtitle">{{ about.journey.sections.1.subtitle }}</h3>
-                        <p class="mb-4">{{ about.journey.sections.1.content }}</p>
+                    <div class="hero-buttons mb-3 d-flex flex-wrap justify-content-lg-start justify-content-center">
+                        <a href="#projects" class="btn btn-outline-light me-3">
+                            <span class="material-icons me-1" style="font-size: 1rem;">visibility</span>
+                            View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light me-3">
+                            <span class="material-icons me-1" style="font-size: 1rem;">chat</span>
+                            Contact Me
+                        </a>
+                        <!-- Download CV button -->
+                        <a href="#" class="btn btn-outline-light">
+                            <span class="material-icons me-1" style="font-size: 1rem;">file_download</span>
+                            Download CV
+                        </a>
                     </div>
                     
-                    <div class="bio-card">
-                        <h3 class="section-subtitle">{{ about.journey.sections.2.subtitle }}</h3>
-                        <p>{{ about.journey.sections.2.content }}</p>
+                    <!-- Simplified scroll indicator -->
+                    <div class="scroll-indicator d-none d-md-block mt-3">
+                        <span class="material-icons animate-bounce small" style="color: #ffffff; font-size: 1.5rem;">keyboard_arrow_down</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Smooth scroll for nav links
-        document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href').slice(1);
-                const target = document.getElementById(targetId);
-                if (target) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: target.getBoundingClientRect().top + window.pageYOffset - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        // Section fade-in on scroll
-        const sections = document.querySelectorAll('section');
-        const fadeIn = (el) => {
-            el.classList.add('section-visible');
-        };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    fadeIn(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        sections.forEach(section => {
-            section.classList.add('section-hidden');
-            observer.observe(section);
-        });
-        // Animated headline/subtitle
-        function animateText(element, text, delay) {
-            let i = 0;
-            let isDeleting = false;
-            function loop() {
-                if (!isDeleting && i <= text.length) {
-                    element.textContent = text.substring(0, i);
-                    i++;
-                    if (i > text.length) {
-                        setTimeout(() => { isDeleting = true; loop(); }, 1200);
-                        return;
-                    }
-                } else if (isDeleting && i >= 0) {
-                    element.textContent = text.substring(0, i);
-                    i--;
-                    if (i < 0) {
-                        isDeleting = false;
-                        setTimeout(loop, 400);
-                        return;
-                    }
-                }
-                setTimeout(loop, delay);
-            }
-            loop();
-        }
-        const headline = document.getElementById('animated-headline');
-        const subtitle = document.getElementById('animated-subtitle');
-        if (headline && subtitle) {
-            animateText(headline, headline.textContent, 70);
-            setTimeout(() => animateText(subtitle, subtitle.textContent, 40), headline.textContent.length * 70 + 400);
-        }
-    });
-    </script>
 
     <div class="container my-5">
-        <!-- About Section -->
-        <section id="about" class="mb-5 py-5" data-aos="fade-up">
-            <h2 class="text-center section-title mb-5">
-                <span class="material-icons">person</span>
-                {{ section_titles.about }}
-            </h2>
-            <div class="row align-items-center">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <div class="text-center">
-                        <div class="profile-image-container mb-4">
-                            <img src="/static/img/profile.png" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 180px; height: 180px; object-fit: cover; border: 3px solid var(--bs-primary);">
-                        </div>
-                        <h3 class="mb-3">{{ about.title }}</h3>
-                        <div class="d-flex justify-content-center gap-3 mb-4">
-                            <a href="{{ contact.linkedin }}" class="social-icon" target="_blank">
-                                <i class="fab fa-linkedin fa-2x" style="color: var(--bs-primary);"></i>
-                            </a>
-                            <a href="{{ contact.github }}" class="social-icon" target="_blank">
-                                <i class="fab fa-github fa-2x" style="color: var(--bs-primary);"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="card border-0 shadow-sm p-4">
-                        <h4 class="mb-4 border-bottom pb-3">Professional Summary</h4>
-                        <p class="lead mb-4">{{ about.bio }}</p>
-                        <div class="skills mt-4">
-                            <h4 class="mb-3 d-flex align-items-center">
-                                <span class="material-icons me-2">build</span>
-                                Technical Skills
-                            </h4>
-                            <div class="d-flex flex-wrap gap-2 mb-4">
-                                {% for skill in about.skills %}
-                                    <span class="badge rounded-pill">{{ skill }}</span>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Services Section -->
-        <section id="services" class="mb-5 py-5" data-aos="fade-up" data-aos-delay="100">
-            <h2 class="text-center section-title mb-5">
-                <span class="material-icons">miscellaneous_services</span>
-                {{ section_titles.services }}
-            </h2>
-            <div class="section-divider mb-5"></div>
-            <div class="row g-4 justify-content-center">
-                {% for service in services %}
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center p-4">
-                            <span class="material-icons mb-3" style="font-size:3rem;color:var(--bs-primary);">{{ service.icon }}</span>
-                            <h4 class="card-title mb-3">{{ service.title }}</h4>
-                            <div class="card-divider mb-3" style="height:2px;width:40px;background:var(--bs-primary);margin:0 auto;"></div>
-                            <p class="card-text">{{ service.description }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </section>
         <!-- Experience Section -->
         <section id="experience" class="mb-5 py-5" data-aos="fade-up" data-aos-delay="150">
             <h2 class="text-center section-title mb-5">
@@ -298,23 +199,25 @@
                 {{ section_titles.projects }}
             </h2>
             <div class="section-divider mb-5"></div>
-            <div class="row g-4">
+            <div class="row g-4 justify-content-center">
                 {% for project in projects %}
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:"200" }}">
                     <div class="card h-100 project-card">
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 d-flex flex-column">
                             <h3 class="card-title mb-3">{{ project.title }}</h3>
                             <div class="card-divider mb-3" style="height:2px;width:40px;background:var(--bs-primary);"></div>
                             <p class="card-text mb-4">{{ project.description }}</p>
-                            <div class="mb-4">
+                            <div class="mb-4 flex-grow-1">
                                 {% for tech in project.technologies %}
-                                    <span class="badge rounded-pill">{{ tech }}</span>
+                                    <span class="badge rounded-pill me-2 mb-2">{{ tech }}</span>
                                 {% endfor %}
                             </div>
-                            <a href="{{ project.link }}" class="btn btn-primary" target="_blank">
-                                <span class="material-icons me-2">launch</span>
-                                View Project
-                            </a>
+                            <div class="text-center text-md-start mt-auto">
+                                <a href="{{ project.link }}" class="btn btn-primary" target="_blank">
+                                    <span class="material-icons me-2">launch</span>
+                                    View Project
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -371,21 +274,24 @@
             </h2>
             <div class="section-divider mb-5"></div>
             <div class="row">
-                <div class="col-md-6 mx-auto text-center">
-                    <div class="card shadow-sm p-4 mb-4">
+                <div class="col-md-8 col-lg-6 mx-auto">
+                    <div class="card shadow-sm p-4 mb-5">
                         <h4 class="mb-4 text-center">{{ contact.title }}</h4>
                         <div class="d-flex flex-column align-items-center gap-3 mb-4">
                             <div class="d-flex align-items-center gap-3 w-100">
-                                <span class="material-icons contact-icon p-2 rounded-circle" style="background:rgba(100,255,218,0.1);">email</span>
+                                <span class="material-icons contact-icon p-3 rounded-circle" style="background:rgba(100,255,218,0.1);">email</span>
                                 <a href="mailto:{{ contact.email }}" class="text-decoration-none">{{ contact.email }}</a>
                             </div>
                            
-                            <div class="d-flex justify-content-center gap-4 mt-3">
+                            <div class="d-flex justify-content-center gap-4 mt-4">
                                 <a href="{{ contact.linkedin }}" class="text-decoration-none" target="_blank">
                                     <i class="fab fa-linkedin fa-2x" style="color: var(--bs-primary);"></i>
                                 </a>
                                 <a href="{{ contact.github }}" class="text-decoration-none" target="_blank">
                                     <i class="fab fa-github fa-2x" style="color: var(--bs-primary);"></i>
+                                </a>
+                                <a href="{{ contact.facebook }}" class="text-decoration-none" target="_blank">
+                                    <i class="fab fa-facebook fa-2x" style="color: var(--bs-primary);"></i>
                                 </a>
                             </div>
                         </div>
@@ -439,6 +345,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         AOS.init({
             duration: 800,
@@ -449,8 +356,12 @@
         });
 
         // Initialize particles.js
-        particlesJS.load('particles-js', '/static/js/particles-config.js', function() {
-            console.log('particles.js loaded - callback');
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS.load('particles-js', '/static/js/particles-config.js', function() {
+                    console.log('particles.js loaded');
+                });
+            }
         });
         
         // Enhanced scroll behavior
@@ -463,6 +374,50 @@
             } else {
                 navbar.classList.remove('navbar-scrolled');
             }
+            
+            // Hide scroll indicator when scrolled
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (scrollIndicator) {
+                if (scrollPosition > 150) {
+                    scrollIndicator.style.opacity = "0";
+                } else {
+                    scrollIndicator.style.opacity = "0.8";
+                }
+            }
+        });
+        
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-link[href^="#"], .scroll-indicator').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href') || this.parentElement.getAttribute('href');
+                if (targetId && targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.getBoundingClientRect().top + window.pageYOffset - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Section fade-in on scroll
+        const sections = document.querySelectorAll('section');
+        const fadeIn = (el) => {
+            el.classList.add('section-visible');
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    fadeIn(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        sections.forEach(section => {
+            section.classList.add('section-hidden');
+            observer.observe(section);
         });
     </script>
 </body>
