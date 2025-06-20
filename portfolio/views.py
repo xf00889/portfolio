@@ -37,31 +37,31 @@ portfolio_content = {
             'title': 'NORSU Alumni Web Portal ',
             'description': 'A robust and feature-rich platform for Negros Oriental State University (NORSU) alumni to network, engage, and share information. ',
             'technologies': ['Django', 'HTML', 'Bootstrap','Javascript'],
-            'link': 'https://github.com/yourusername/project2'
+            'link': 'https://github.com/xf00889/alumnisystem'
         },
         {
             'title': 'CTTMO Traffic Violation Management System  ',
             'description': 'Developed a web-based application for managing traffic violations, including recording infringement details and fines.',
             'technologies': ['Django', 'HTML', 'Bootstrap','Javascript'],
-            'link': 'https://github.com/yourusername/project2'
+            'link': 'https://github.com/xf00889/CTTMO-Traffic-violation-Management-System'
         },
         {
             'title': 'Pharmacy Inventory Management System',
             'description': 'Built a multi user desktop app with role-based dashboards for inventory, prescription, stock, and sales management (POS).',
             'technologies': ['JAVA Netbeans', 'MYSQL', 'JavaFX'],
-            'link': 'https://github.com/yourusername/project2'
+            'link': 'https://github.com/xf00889/pharmacy_inventory_management_system'
         },
         {
             'title': 'CRUD To Do List with Email Updates',
             'description': 'Created a web-based CRUD application for task tracking, featuring email notifications on task creation, updates, or deadlines.',
             'technologies': ['PHP', 'MYSQL', 'HTML', 'CSS', 'Javascript'],
-            'link': 'https://github.com/yourusername/project2'
+            'link': 'https://github.com/xf00889/CRUD_TODOLIST_EMAIL_UPDATE'
         },
         {
             'title': 'Django Payroll Management System with QR & Face Recognition',
             'description': 'Developed a web-based payroll and attendance system using QR codes for staff authentication and payroll automation',
             'technologies': ['Django', 'HTML', 'Bootstrap','Javascript'],
-            'link': 'https://github.com/yourusername/project2'
+            'link': 'https://github.com/xf00889/django_payrollMS_with_QR_and_facerecognition'
         }
     ],
     'contact': {
