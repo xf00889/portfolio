@@ -2,7 +2,7 @@ services:
   - type: web
     name: portfolio
     runtime: python
-    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    buildCommand: chmod +x build_files.sh && ./build_files.sh
     startCommand: gunicorn portfolio.wsgi:application
     envVars:
       - key: SECRET_KEY
