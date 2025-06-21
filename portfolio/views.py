@@ -62,6 +62,12 @@ portfolio_content = {
             'description': 'Developed a web-based payroll and attendance system using QR codes for staff authentication and payroll automation',
             'technologies': ['Django', 'HTML', 'Bootstrap','Javascript'],
             'link': 'https://github.com/xf00889/django_payrollMS_with_QR_and_facerecognition'
+        },
+        {
+            'title': 'Laravel Chatbot',
+            'description': 'Developed a chatbot using Laravel and OpenAI API to provide real-time responses to user queries.',
+            'technologies': ['Laravel', 'HTML', 'Bootstrap','Javascript'],
+            'link': 'https://github.com/xf00889/laravel_chatbot'
         }
     ],
     'contact': {
