@@ -198,6 +198,7 @@ portfolio_content = {
         'contact': 'Contact'
     },
     'footer': {
+        'name': 'Juby Neil C. Valiao',
         'message': 'Thank you for visiting my portfolio. I\'m always open to discussing new projects, creative ideas or opportunities to be part of your vision.',
         'copyright': '© 2025 {{ about.name }}. All Rights Reserved.'
     },
